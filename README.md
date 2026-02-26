@@ -1,44 +1,59 @@
-AMOC - DAM (Daily Analysis Monitor) v1.7
-A high-performance, cross-platform desktop application built in Rust for analyzing and visualizing Sea Surface Temperature (SST) data from NetCDF files, specifically tailored for monitoring the Atlantic Meridional Overturning Circulation (AMOC).
+# 🌊 MSDAM - Multi Source Data Analysis Monitor (v1.9.7)
 
-🚀 Overview
-AMOC - DAM provides researchers and climate enthusiasts with a streamlined interface to process OSISAF NetCDF datasets. The app automates the extraction of temperature data across specific North Atlantic latitudes (40°N to 65°N) at a fixed longitude, providing immediate visual feedback through interactive plotting and data grids.
+**A high-performance scientific suite built in Rust for Atlantic Meridional Overturning Circulation (AMOC) monitoring.**
 
-✨ Key Features
-Automated NetCDF Discovery: On startup, the app automatically scans the local directory for relevant .nc files containing "OSISAF" in the filename.
+MSDAM is a specialized tool designed to bridge the gap between complex satellite raw data (`.nc` files) and climate research. It provides an intuitive way to analyze Sea Surface Temperature (SST) and Sea Level Anomaly (MSL) across the North Atlantic corridor.
 
-Multithreaded Processing: Data extraction and analysis run on a background thread to keep the UI responsive, featuring a real-time progress bar.
+---
 
-Scientific Plotting: Utilizes egui_plot to render SST (°C) against Latitude (N) with a fixed scale to ensure scientific consistency.
+## 🚀 Overview
+MSDAM (formerly AMOC-DAM) allows researchers and climate enthusiasts to process NetCDF datasets from **NASA (JPL)**, **Copernicus (Marine)**, and **IFREMER (OSI-SAF)**. The application automates data extraction across critical North Atlantic latitudes (**40°N to 65°N**) at a fixed longitude (**15.0°W**).
 
-Detailed Data Grid: A scrollable, striped data table for precise reading of temperature values at specific coordinates.
+## ✨ Key Features
+* **Multi-Source Integration:** Native support for NASA (MUR-Infrared), Copernicus (Altimetry/MSL), and IFREMER (VIIRS/SAT).
+* **Hybrid Toolset:** Includes both a **Graphical Interface (GUI)** for visualization and a **Console Version** for quick terminal-based audits.
+* **Scientific Consistency:** Uses `egui_plot` with auto-bounds for SST (°C) and Sea Level (m), ensuring data integrity.
+* **Security & Integrity:** Integrated **SHA1 hashing** for every file processed to ensure data traceability.
+* **Linux Optimized:** Specifically tailored for high performance on **openSUSE Tumbleweed** and rolling-release distributions.
 
-Native File Dialogs: Easily browse and select specific NetCDF files using a native system explorer.
+---
 
-🛠️ Technical Stack
-Language: Rust
+## 🖥️ Versions & Usage
 
-GUI Framework: eframe / egui (Immediate mode GUI)
+### 1. GUI Version (`gui_multi`)
+The flagship version with real-time plotting and interactive data grids.
+* **How to run:**
+    1. Give execution permission: `chmod +x gui_multi`
+    2. Run it: `./gui_multi`
+* **Interaction:** Use the "📂 Abrir NetCDF" button to select any compatible file. The app detects the provider automatically.
 
-Data Format: NetCDF (Network Common Data Form)
+### 2. Console Version (`amoc_console`)
+A lightweight, lightning-fast terminal tool for quick data extraction.
+* **How to run:**
+    1. Give execution permission: `chmod +x amoc_console`
+    2. Run it: `./amoc_console`
+* **Output:** Direct ASCII/Table output of the coordinates and values.
 
-Concurrency: std::sync (Arc, Mutex) and std::thread
+---
 
-File Handling: rfd (Rust File Dialog)
+## 🛠️ Technical Stack
+* **Language:** Rust 🦀
+* **GUI:** eframe / egui (Immediate mode GUI)
+* **Data Format:** NetCDF-4 (via `netcdf` crate)
+* **Integrity:** SHA-1 Checksumming
+* **Platform:** Linux (Tested on openSUSE Tumbleweed x64)
 
-📋 Requirements
-To compile this project, you will need:
+## 📋 Requirements (Linux)
+To run the pre-compiled binaries, ensure you have the NetCDF C libraries installed:
+```bash
+# On openSUSE:
+sudo zypper install libnetcdf19  # or equivalent netcdf-devel
 
-Rust Toolchain (Cargo, rustc)
+# On Ubuntu/Debian:
+sudo apt-get install libnetcdf-dev
 
-NetCDF C Libraries (The netcdf crate requires the underlying C library installed on your system: libnetcdf-dev on Ubuntu/Debian or netcdf via Homebrew on macOS).
+🦖 License & Usage
+Freeware for Science, Research & Home Use. This tool is provided as-is for the advancement of climate change monitoring and oceanographic research.
 
-🖥️ Usage
-Place your .nc (NetCDF) files in the application folder or use the "Abrir Ficheiro" button.
-
-The app targets the North Atlantic corridor (Longitude ~15.0° W).
-
-The graph will automatically populate with the Sea Surface Temperature gradient from 40°N to 65°N.
-
-Developed by
-Adelino Saldanha - www.adelinosaldanha.site
+🌐 Developed by
+AS - Adelino Saldanha - www.adelinosaldanha.site
