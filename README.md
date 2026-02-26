@@ -20,19 +20,19 @@ MSDAM (formerly AMOC-DAM) allows researchers and climate enthusiasts to process 
 
 ## 🖥️ Versions & Usage
 
-### 1. GUI Version (`gui_multi`)
+### 1. GUI Version (`MSDAM`)
 The flagship version with real-time plotting and interactive data grids.
 * **How to run:**
-    1. Give execution permission: `chmod +x gui_multi`
-    2. Run it: `./gui_multi`
+    1. Give execution permission: `chmod +x amoc-msdam`
+    2. Run it: `./amoc-msdam`
 * **Interaction:** Use the "📂 Abrir NetCDF" button to select any compatible file. The app detects the provider automatically.
 
-### 2. Console Version (`amoc_console`)
+### 2. Console Version (`MSDAT`)
 A lightweight, lightning-fast terminal tool for quick data extraction.
 * **How to run:**
-    1. Give execution permission: `chmod +x amoc_console`
-    2. Run it: `./amoc_console`
-* **Output:** Direct ASCII/Table output of the coordinates and values.
+    1. Give execution permission: `chmod +x amoc-msdat`
+    2. Run it: `./amoc-msdat`
+* **Output:** Direct ASCII/Table output of the coordinates and values from the files in the current directory.
 
 ---
 
