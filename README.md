@@ -16,6 +16,7 @@ MSDAM (formerly AMOC-DAM) allows researchers and climate enthusiasts to process 
 * **Security & Integrity:** Integrated **SHA1 hashing** for every file processed to ensure data traceability.
 * **Linux Optimized:** Specifically tailored for high performance on **openSUSE Tumbleweed** and rolling-release distributions.
 
+"Implemented Sea Level Anomaly (MSL) correlation, allowing for dynamic height analysis of the North Atlantic Current (NAC) as a proxy for AMOC strength."
 ---
 
 ## 🖥️ Versions & Usage
